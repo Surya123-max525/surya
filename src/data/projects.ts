@@ -122,6 +122,63 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Conversion Modes", value: "10+ Categories" },
       { label: "Performance Score", value: "99+ Lighthouse" }
     ]
+  },
+  {
+    slug: "ieee-sb-srec",
+    name: "IEEE Student Branch SREC",
+    tag: "Student Branch Portal",
+    desc: "A modern, responsive website for the IEEE Student Branch at Sri Ramakrishna Engineering College, Coimbatore.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Supabase"],
+    github: "https://github.com/Surya123-max525/IEEE-SB-SREC",
+    demo: "#",
+    timeline: "2024 - 2025",
+    role: "Lead Developer",
+    overview: "Official portal for the IEEE Student Branch of Sri Ramakrishna Engineering College (SREC) containing event history, office bearers details, advisors list, and society chapters.",
+    problem: "Students needed a central portal to check for upcoming events, join societies, and view past achievements/office bearers info.",
+    solution: "Designed a fully responsive web application with a Supabase database backing, custom components for society chapters, and interactive activity logging.",
+    highlights: [
+      "Hosts event logs of over 46+ branch activities from 2020-2025",
+      "Integrated details of office bearers, advisors, and societies chapters",
+      "Backed by a relational PostgreSQL/Supabase database structure",
+      "Smooth interface design utilizing Tailwind CSS and shadcn/ui"
+    ],
+    stack: [
+      { label: "Frontend", items: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui"] },
+      { label: "Backend/Database", items: ["Supabase (PostgreSQL)"] }
+    ],
+    results: [
+      { label: "Activities Tracked", value: "46+ Events" },
+      { label: "Student Reach", value: "1000+ members" }
+    ]
+  },
+  {
+    slug: "icaectsd-2027",
+    name: "ICAECTSD 2027",
+    tag: "Conference Web App",
+    desc: "Official website for the IEEE International Conference on Advances in Engineering and Computing Technologies for Sustainable Development (ICAECTSD 2027) at SREC.",
+    tech: ["React", "TypeScript", "Vite", "Framer Motion", "Firebase", "Supabase"],
+    github: "https://github.com/Surya123-max525/aectsd",
+    demo: "#",
+    timeline: "July 2026",
+    role: "Full Stack Developer",
+    overview: "International Conference web portal for ICAECTSD 2027 organized by Sri Ramakrishna Engineering College, hosting papers submissions guidelines, committee member records, keynote speakers, workshops, and registrations.",
+    problem: "Managing thousands of registration files, receipts, workshops, keynote slides, and guidelines across EEE, ECE, EIE, BME, CSE, and IT departments in a single reliable portal.",
+    solution: "A scalable web app using Framer Motion for interactive transitions, Firebase for storage/auth, and Supabase for structured data tables. Features an AI-powered SREC Conference Assistant chatbot (Nexus) for fast queries.",
+    highlights: [
+      "CMT Microsoft portal integration for paper submission tracking",
+      "Interactive 'Nexus' chatbot to resolve query FAQs automatically",
+      "Interactive guidelines, map directions, and regional exploration tools",
+      "Robust administrator dashboard console to manage dates, announcements, and registrations"
+    ],
+    stack: [
+      { label: "Frontend", items: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"] },
+      { label: "Backend/Database", items: ["Supabase", "Firebase Auth/Storage"] },
+      { label: "Integration", items: ["Microsoft CMT API", "EmailJS"] }
+    ],
+    results: [
+      { label: "Target Audience", value: "Global Researchers" },
+      { label: "AI Support", value: "24/7 Chatbot (Nexus)" }
+    ]
   }
 ];
 
