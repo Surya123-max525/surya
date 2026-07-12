@@ -1,0 +1,296 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-deep: var(--gold-deep);
+
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --shadow-gold: 0 0 40px oklch(0.78 0.15 85 / 0.35);
+  --shadow-gold-lg: 0 0 80px oklch(0.78 0.15 85 / 0.45);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  --background: oklch(0.08 0.005 60);
+  --foreground: oklch(0.97 0.01 90);
+
+  --card: oklch(0.12 0.008 70 / 0.6);
+  --card-foreground: oklch(0.97 0.01 90);
+
+  --popover: oklch(0.1 0.008 70);
+  --popover-foreground: oklch(0.97 0.01 90);
+
+  --primary: oklch(0.78 0.15 85);
+  --primary-foreground: oklch(0.08 0.005 60);
+
+  --secondary: oklch(0.18 0.01 70);
+  --secondary-foreground: oklch(0.97 0.01 90);
+
+  --muted: oklch(0.15 0.008 70);
+  --muted-foreground: oklch(0.65 0.02 85);
+
+  --accent: oklch(0.78 0.15 85);
+  --accent-foreground: oklch(0.08 0.005 60);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+
+  --border: oklch(0.78 0.15 85 / 0.15);
+  --border-strong: oklch(0.78 0.15 85 / 0.25);
+  --input: oklch(0.78 0.15 85 / 0.2);
+  --ring: oklch(0.78 0.15 85);
+
+  --gold: oklch(0.78 0.15 85);
+  --gold-soft: oklch(0.85 0.11 90);
+  --gold-deep: oklch(0.62 0.14 75);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--background);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold-deep), var(--gold));
+    border-radius: 4px;
+  }
+}
+
+@utility glass {
+  background: linear-gradient(135deg, oklch(0.15 0.01 70 / 0.4), oklch(0.1 0.008 70 / 0.2));
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--color-border);
+  box-shadow:
+    inset 0 1px 0 oklch(0.78 0.15 85 / 0.1),
+    0 20px 40px oklch(0 0 0 / 0.4);
+}
+
+@utility glass-strong {
+  background: linear-gradient(135deg, oklch(0.15 0.01 70 / 0.7), oklch(0.1 0.008 70 / 0.5));
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid var(--color-border-strong);
+}
+
+@utility text-gradient-gold {
+  background: linear-gradient(
+    135deg,
+    oklch(0.95 0.08 90),
+    oklch(0.78 0.15 85) 40%,
+    oklch(0.62 0.14 75) 70%,
+    oklch(0.85 0.11 90)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 6s ease-in-out infinite;
+}
+
+@utility gold-glow {
+  box-shadow:
+    0 0 30px oklch(0.78 0.15 85 / 0.4),
+    0 0 60px oklch(0.78 0.15 85 / 0.2);
+}
+
+@utility gold-border {
+  position: relative;
+  background:
+    linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(
+        135deg,
+        oklch(0.78 0.15 85 / 0.6),
+        oklch(0.78 0.15 85 / 0.1),
+        oklch(0.78 0.15 85 / 0.6)
+      )
+      border-box;
+  border: 1px solid transparent;
+}
+
+@utility bg-radial-ambient-1 {
+  background: radial-gradient(circle, oklch(0.78 0.15 85 / 0.4), transparent 70%);
+}
+
+@utility bg-radial-ambient-2 {
+  background: radial-gradient(circle, oklch(0.62 0.14 75 / 0.35), transparent 70%);
+}
+
+@utility bg-grid-ambient {
+  background-image:
+    linear-gradient(oklch(0.78 0.15 85) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.78 0.15 85) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@utility bg-cursor-glow {
+  background: radial-gradient(circle, oklch(0.78 0.15 85 / 0.25), transparent 60%);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility bg-project-hover-gradient {
+  background: radial-gradient(
+    600px circle at var(--mx, 50%) var(--my, 50%),
+    oklch(0.78 0.15 85 / 0.15),
+    transparent 40%
+  );
+}
+
+@utility bg-project-card-radial {
+  background-image:
+    radial-gradient(circle at 30% 30%, oklch(0.78 0.15 85) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, oklch(0.62 0.14 75) 0%, transparent 50%);
+}
+
+@utility orbit-dot-0 {
+  transform: translate(-50%, -50%) rotate(0deg) translateY(-215px);
+}
+@utility orbit-dot-60 {
+  transform: translate(-50%, -50%) rotate(60deg) translateY(-215px);
+}
+@utility orbit-dot-120 {
+  transform: translate(-50%, -50%) rotate(120deg) translateY(-215px);
+}
+@utility orbit-dot-180 {
+  transform: translate(-50%, -50%) rotate(180deg) translateY(-215px);
+}
+@utility orbit-dot-240 {
+  transform: translate(-50%, -50%) rotate(240deg) translateY(-215px);
+}
+@utility orbit-dot-300 {
+  transform: translate(-50%, -50%) rotate(300deg) translateY(-215px);
+}
+
+@keyframes gold-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float-up {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px oklch(0.78 0.15 85 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px oklch(0.78 0.15 85 / 0.6);
+  }
+}
+
+@keyframes blink-caret {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--r, 100px)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--r, 100px)) rotate(-360deg);
+  }
+}
+
+.animate-float {
+  animation: float-up 6s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.caret::after {
+  content: "|";
+  color: var(--gold);
+  margin-left: 2px;
+  animation: blink-caret 1s step-end infinite;
+}
