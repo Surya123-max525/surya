@@ -557,8 +557,8 @@ function ProjectCard({ p, i }: { p: Project; i: number }) {
       <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-project-hover-gradient" />
       <div className="relative aspect-16/10 w-full overflow-hidden rounded-2xl border border-primary/20 bg-linear-to-br from-[oklch(0.15_0.02_75)] to-[oklch(0.08_0.005_60)]">
         <div className="absolute inset-0 opacity-20 bg-project-card-radial" />
-        <div className="absolute inset-0 grid place-items-center font-display text-5xl text-primary/40 transition-transform duration-700 group-hover:scale-110">
-          {p.name.charAt(0)}
+        <div className="absolute inset-0 grid place-items-center font-display text-4xl font-bold tracking-widest text-primary/30 transition-transform duration-700 group-hover:scale-110">
+          {p.slug === "ieee-sb-srec" ? "IEEE" : p.slug === "icaectsd-2027" ? "AECTSD" : p.slug === "temperature-converter" ? "TEMP" : p.slug === "uniconvert-master-suite" ? "UNI" : p.name.substring(0, 3).toUpperCase()}
         </div>
         <div className="absolute right-3 top-3 rounded-full border border-primary/30 bg-background/60 px-2.5 py-1 text-[10px] uppercase tracking-widest text-primary backdrop-blur">
           {p.tag}
