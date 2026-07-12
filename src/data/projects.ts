@@ -93,6 +93,35 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Units Supported", value: "3 (C, F, K)" },
       { label: "DB Integration", value: "MySQL History Log" }
     ]
+  },
+  {
+    slug: "uniconvert-master-suite",
+    name: "UniConvert Master Suite",
+    tag: "Utility Web App",
+    desc: "A modern, fast, and responsive all-in-one unit conversion web application built with React, TypeScript, and Vite.",
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Bun"],
+    github: "https://github.com/Surya123-max525/uniconvert-master-suite",
+    demo: "#",
+    timeline: "July 2026",
+    role: "Frontend Developer",
+    overview: "UniConvert Master Suite is an all-in-one web utility designed for conversion of Length, Weight, Temperature, Power, Energy, Speed, Data Storage, Area, Volume, Time, and Currency.",
+    problem: "Traditional converters require switching between multiple single-purpose tools, are sluggish, lack mobile responsiveness, and lack consistent dark/light themes.",
+    solution: "A fast, unified converter built with Vite and Tailwind CSS that is fully responsive, supports 10+ categories of unit conversion, and features light/dark mode for ultimate UX convenience.",
+    highlights: [
+      "Supports 10+ conversion categories including Length, Weight, Power, and Speed",
+      "Fully responsive modern UI designed with Tailwind CSS",
+      "Smooth Dark/Light mode theme switching",
+      "Built with TypeScript and powered by Vite & Bun for instant load speeds"
+    ],
+    stack: [
+      { label: "Frontend", items: ["React", "TypeScript", "Tailwind CSS"] },
+      { label: "Build Tool", items: ["Vite", "Bun"] },
+      { label: "Deployment", items: ["Vercel"] }
+    ],
+    results: [
+      { label: "Conversion Modes", value: "10+ Categories" },
+      { label: "Performance Score", value: "99+ Lighthouse" }
+    ]
   }
 ];
 
