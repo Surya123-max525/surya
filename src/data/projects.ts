@@ -179,6 +179,34 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Target Audience", value: "Global Researchers" },
       { label: "AI Support", value: "24/7 Chatbot (Nexus)" }
     ]
+  },
+  {
+    slug: "performance-card-generator",
+    name: "Performance Card Generator",
+    tag: "Data & PDF Utility",
+    desc: "An automated batch report card generation dashboard designed for Amrita Vidyalayam schools.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "xlsx", "html2pdf.js"],
+    github: import.meta.env.VITE_PROJECT_PERF_GITHUB || "https://github.com/Surya123-max525",
+    demo: import.meta.env.VITE_PROJECT_PERF_DEMO || "#",
+    timeline: "Dec 2025",
+    role: "Lead Developer",
+    overview: "Performance Card Generator is a batch automation utility built for Amrita Vidyalayam, Nallampalayam, to ingestion sheets of periodic test marks, edit parameters dynamically, and render print-ready batch report card PDFs.",
+    problem: "Teachers spent hours copy-pasting grades for subjects (English, Business Studies, Accountancy, Economics, Mathematics, PE) for individual student cards, introducing typographical risks.",
+    solution: "Designed a clean, single-page client tool using SheetJS to parse Excel templates, dynamically preview individual cards, validate totals, and render batch PDF reports cleanly mapped to printers.",
+    highlights: [
+      "Dynamic Excel parsing backing for English, Business Studies, and core subject marks",
+      "Real-time student card details editing interface",
+      "Print-optimized CSS layouts mapping perfectly to physical card formats",
+      "One-click high-fidelity batch PDF export with custom filename naming"
+    ],
+    stack: [
+      { label: "Frontend Stack", items: ["React", "TypeScript", "Tailwind CSS"] },
+      { label: "File Parsers", items: ["xlsx (SheetJS)", "html2pdf.js"] }
+    ],
+    results: [
+      { label: "Teacher Hours", value: "Reduced by 95%" },
+      { label: "Data Quality", value: "100% Error-Free" }
+    ]
   }
 ];
 
