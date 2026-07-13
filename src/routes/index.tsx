@@ -43,6 +43,12 @@ const ROLES = [
   "Embedded Systems Enthusiast",
 ];
 
+const GITHUB_URL = import.meta.env.VITE_GITHUB_URL || "https://github.com/Surya123-max525";
+const LINKEDIN_URL = import.meta.env.VITE_LINKEDIN_URL || "https://www.linkedin.com/in/surya-narayanan-k-s/";
+const RESUME_URL = import.meta.env.VITE_RESUME_URL || "#";
+const EMAIL = import.meta.env.VITE_EMAIL || "suryanarayananks2007@gmail.com";
+const INSTAGRAM_URL = import.meta.env.VITE_INSTAGRAM_URL || "https://instagram.com/shadow_peak_25";
+
 function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
@@ -337,7 +343,9 @@ function Hero() {
               Contact Me
             </a>
             <a
-              href="#"
+              href={RESUME_URL}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
             >
               Download Resume <DownloadIcon />
@@ -712,10 +720,10 @@ function Contact() {
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-4">
             {[
-              { label: "Email", value: "suryanarayananks2007@gmail.com"},
-              { label: "GitHub", value: "@Surya Narayanan K S", href: "https://github.com/Surya123-max525" },
-              { label: "LinkedIn", value: "in/Surya Narayanan K S", href: "https://www.linkedin.com/in/surya-narayanan-k-s/" },
-              { label: "Instagram", value: "@shadow_peak_25", href: "https://instagram.com/shadow_peak_25" },
+              { label: "Email", value: EMAIL, href: `mailto:${EMAIL}` },
+              { label: "GitHub", value: "@Surya Narayanan K S", href: GITHUB_URL },
+              { label: "LinkedIn", value: "in/Surya Narayanan K S", href: LINKEDIN_URL },
+              { label: "Instagram", value: "@shadow_peak_25", href: INSTAGRAM_URL },
             ].map((c) => (
               <a
                 key={c.label}
@@ -796,15 +804,15 @@ function Footer() {
           © {new Date().getFullYear()} — Crafted with obsession. All rights reserved.
         </p>
         <div className="flex items-center gap-3 text-xs text-muted-foreground">
-          <a href="https://github.com/Surya123-max525" className="hover:text-primary">
+          <a href={GITHUB_URL} className="hover:text-primary">
             GitHub
           </a>
           <span>·</span>
-          <a href="https://www.linkedin.com/in/surya-narayanan-k-s/" className="hover:text-primary">
+          <a href={LINKEDIN_URL} className="hover:text-primary">
             LinkedIn
           </a>
           <span>·</span>
-          <a href="https://instagram.com/shadow_peak_25" className="hover:text-primary">
+          <a href={INSTAGRAM_URL} className="hover:text-primary">
             Instagram
           </a>
         </div>
