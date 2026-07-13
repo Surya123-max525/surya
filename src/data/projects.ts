@@ -20,6 +20,7 @@ export type Project = {
   results: ResultMetric[];
   timeline: string;
   role: string;
+  image?: string;
 };
 
 export type SkillGroup = { title: string; items: string[] };
@@ -92,7 +93,8 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
     results: [
       { label: "Units Supported", value: "3 (C, F, K)" },
       { label: "DB Integration", value: "MySQL History Log" }
-    ]
+    ],
+    image: "/src/assets/temp-converter.png"
   },
   {
     slug: "uniconvert-master-suite",
@@ -121,7 +123,8 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
     results: [
       { label: "Conversion Modes", value: "10+ Categories" },
       { label: "Performance Score", value: "99+ Lighthouse" }
-    ]
+    ],
+    image: "/src/assets/uniconvert.png"
   },
   {
     slug: "ieee-sb-srec",
@@ -149,7 +152,8 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
     results: [
       { label: "Activities Tracked", value: "46+ Events" },
       { label: "Student Reach", value: "1000+ members" }
-    ]
+    ],
+    image: "/src/assets/ieee-sb-srec.png"
   },
   {
     slug: "icaectsd-2027",
@@ -178,7 +182,8 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
     results: [
       { label: "Target Audience", value: "Global Researchers" },
       { label: "AI Support", value: "24/7 Chatbot (Nexus)" }
-    ]
+    ],
+    image: "/src/assets/icaectsd.png"
   },
   {
     slug: "performance-card-generator",
@@ -206,7 +211,8 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
     results: [
       { label: "Teacher Hours", value: "Reduced by 95%" },
       { label: "Data Quality", value: "100% Error-Free" }
-    ]
+    ],
+    image: "/src/assets/performance-card.png"
   }
 ];
 
