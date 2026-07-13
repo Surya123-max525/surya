@@ -94,7 +94,7 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Units Supported", value: "3 (C, F, K)" },
       { label: "DB Integration", value: "MySQL History Log" }
     ],
-    image: "/src/assets/temp-converter.png"
+    image: "/temp-converter.png"
   },
   {
     slug: "uniconvert-master-suite",
@@ -124,7 +124,7 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Conversion Modes", value: "10+ Categories" },
       { label: "Performance Score", value: "99+ Lighthouse" }
     ],
-    image: "/src/assets/uniconvert.png"
+    image: "/uniconvert.png"
   },
   {
     slug: "ieee-sb-srec",
@@ -153,7 +153,7 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Activities Tracked", value: "46+ Events" },
       { label: "Student Reach", value: "1000+ members" }
     ],
-    image: "/src/assets/ieee-sb-srec.png"
+    image: "/ieee-sb-srec.png"
   },
   {
     slug: "icaectsd-2027",
@@ -183,7 +183,7 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Target Audience", value: "Global Researchers" },
       { label: "AI Support", value: "24/7 Chatbot (Nexus)" }
     ],
-    image: "/src/assets/icaectsd.png"
+    image: "/icaectsd.png"
   },
   {
     slug: "performance-card-generator",
@@ -212,7 +212,7 @@ const LOCAL_PROJECTS_FALLBACK: Project[] = [
       { label: "Teacher Hours", value: "Reduced by 95%" },
       { label: "Data Quality", value: "100% Error-Free" }
     ],
-    image: "/src/assets/performance-card.png"
+    image: "/performance-card.png"
   }
 ];
 
