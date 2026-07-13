@@ -46,9 +46,14 @@ const ROLES = [
 function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("Home");
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      setShowBackToTop(window.scrollY > 300);
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -71,6 +76,10 @@ function Portfolio() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 origin-[0%]"
+        style={{ scaleX: scrollYProgress }}
+      />
       <AmbientBackground />
       <CursorGlow />
       <Nav scrolled={scrolled} active={activeSection} />
@@ -82,6 +91,20 @@ function Portfolio() {
       <Achievements />
       <Contact />
       <Footer />
+
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="fixed bottom-6 right-6 z-50 grid h-10 w-10 place-items-center rounded-full border border-primary/30 bg-background/80 text-primary backdrop-blur-md transition-all hover:bg-primary hover:text-background shadow-gold cursor-pointer"
+          >
+            ↑
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -511,6 +534,7 @@ function Skills() {
 
 /* ---------------- Projects ---------------- */
 function Projects() {
+  const [filter, setFilter] = useState("All");
   return (
     <section id="Projects" className="relative py-32">
       <div className="container mx-auto px-6">
@@ -519,7 +543,7 @@ function Projects() {
           title="Featured Projects"
           subtitle="A curated slice of what I've been building at the edge of AI, product and hardware."
         />
-        <ProjectsGrid />
+        <ProjectsGrid activeFilter={filter} onFilterChange={setFilter} />
       </div>
     </section>
   );
@@ -835,7 +859,15 @@ function SkillGroupsList() {
   );
 }
 
-function ProjectsGrid() {
+const FILTERS = ["All", "React", "Python", "TypeScript", "Vite"];
+
+function ProjectsGrid({
+  activeFilter,
+  onFilterChange,
+}: {
+  activeFilter: string;
+  onFilterChange: (f: string) => void;
+}) {
   const { data, isLoading } = useQuery(projectsQueryOptions());
   if (isLoading) {
     return (
@@ -846,11 +878,54 @@ function ProjectsGrid() {
       </div>
     );
   }
+
+  const filtered = (data ?? []).filter((p) => {
+    if (activeFilter === "All") return true;
+    return p.tech.some(
+      (t) =>
+        t.toLowerCase() === activeFilter.toLowerCase() ||
+        t.toLowerCase().includes(activeFilter.toLowerCase()),
+    );
+  });
+
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {(data ?? []).map((p, i) => (
-        <ProjectCard key={p.slug} p={p} i={i} />
-      ))}
+    <div className="space-y-8">
+      {/* Dynamic Filter Buttons */}
+      <div className="flex flex-wrap justify-center gap-2 mb-10">
+        {FILTERS.map((f) => {
+          const isActive = activeFilter === f;
+          return (
+            <button
+              key={f}
+              onClick={() => onFilterChange(f)}
+              className={`rounded-full px-4 py-2 text-xs font-mono tracking-wider transition-all cursor-pointer ${
+                isActive
+                  ? "bg-primary text-background shadow-gold"
+                  : "border border-primary/20 bg-background/40 text-muted-foreground hover:text-foreground hover:border-primary/40"
+              }`}
+            >
+              {f.toUpperCase()}
+            </button>
+          );
+        })}
+      </div>
+
+      <motion.div layout className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <AnimatePresence mode="popLayout">
+          {filtered.map((p, i) => (
+            <motion.div
+              layout
+              key={p.slug}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.4 }}
+            >
+              <ProjectCard p={p} i={i} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 }
