@@ -11,8 +11,8 @@ import {
 import { useMemo, useRef, Suspense } from "react";
 import * as THREE from "three";
 
-const GOLD = "#D4AF37";
-const GOLD_DEEP = "#B8860B";
+const GOLD = "#00dfb2";
+const GOLD_DEEP = "#0083b0";
 
 function ParticleField() {
   const ref = useRef<THREE.Points>(null);
@@ -155,7 +155,7 @@ function Scene() {
     <>
       <ambientLight intensity={0.25} />
       <pointLight position={[10, 10, 10]} intensity={2} color={GOLD} />
-      <pointLight position={[-10, -5, -5]} intensity={1} color="#ffcc66" />
+      <pointLight position={[-10, -5, -5]} intensity={1} color="#00b4d8" />
       <spotLight position={[0, 8, 4]} angle={0.4} intensity={2} color={GOLD} />
 
       <ParticleField />

@@ -3,7 +3,7 @@ import { OrbitControls, Icosahedron } from "@react-three/drei";
 import { useRef, Suspense } from "react";
 import * as THREE from "three";
 
-const GOLD = "#D4AF37";
+const GOLD = "#00dfb2";
 
 function TechSphere() {
   const ref = useRef<THREE.Mesh>(null);
@@ -38,7 +38,7 @@ export default function TechSphereScene() {
       <Suspense fallback={null}>
         <ambientLight intensity={0.3} />
         <pointLight position={[3, 3, 3]} intensity={2} color={GOLD} />
-        <pointLight position={[-3, -3, -3]} intensity={1} color="#ffcc66" />
+        <pointLight position={[-3, -3, -3]} intensity={1} color="#00b4d8" />
         <TechSphere />
         <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
       </Suspense>
